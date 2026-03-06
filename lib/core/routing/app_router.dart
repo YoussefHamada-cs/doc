@@ -1,7 +1,7 @@
 import 'package:duc/core/routing/app_routes.dart';
 import 'package:duc/core/routing/app_transitions.dart';
 import 'package:duc/features/home/presentation/views/home_view.dart';
-import 'package:duc/features/login/presentation/views/log_in_view.dart';
+import 'package:duc/features/auth/presentation/views/log_in_view.dart';
 import 'package:duc/features/onboarding/presentation/views/on_boarding_view.dart';
 import 'package:go_router/go_router.dart';
 

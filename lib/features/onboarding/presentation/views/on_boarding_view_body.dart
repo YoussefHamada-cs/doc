@@ -33,12 +33,17 @@ class OnBoardingViewBody extends StatelessWidget {
           ),
         ),
         SizedBox(height: 30.h),
-        CustomButton(
-          text: 'Get Started',
-          onPressed: () {
-            context.pushNamed(AppRoutes.logIn); // Navigate to the login screen
-            // Handle button press
-          },
+        Padding(
+          padding: EdgeInsets.symmetric(horizontal: 32.0.w, vertical: 8.0),
+          child: CustomButton(
+            text: 'Get Started',
+            onPressed: () {
+              context.pushNamed(
+                AppRoutes.logIn,
+              ); // Navigate to the login screen
+              // Handle button press
+            },
+          ),
         ),
       ],
     );
