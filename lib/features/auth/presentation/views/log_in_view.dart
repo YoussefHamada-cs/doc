@@ -1,3 +1,4 @@
+import 'package:duc/features/auth/presentation/widgets/logIn_view_body.dart';
 import 'package:flutter/material.dart';
 
 class LogInView extends StatelessWidget {
@@ -6,8 +7,7 @@ class LogInView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Log In')),
-      body: Center(child: Text('Log In View')),
+      body: LogInViewBody(),
     );
   }
 }
