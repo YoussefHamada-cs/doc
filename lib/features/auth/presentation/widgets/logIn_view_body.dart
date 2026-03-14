@@ -1,4 +1,3 @@
-
 import 'package:duc/core/helper/spacing.dart';
 import 'package:duc/core/theming/app_text_styles.dart';
 import 'package:duc/features/auth/presentation/widgets/donot_have_an_account.dart';
@@ -8,9 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LogInViewBody extends StatelessWidget {
-  const LogInViewBody({
-    super.key,
-  });
+  const LogInViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,12 +1,9 @@
-
 import 'package:duc/core/theming/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class DocImageAndTextOnboarding extends StatelessWidget {
-  const DocImageAndTextOnboarding({
-    super.key,
-  });
+  const DocImageAndTextOnboarding({super.key});
 
   @override
   Widget build(BuildContext context) {
