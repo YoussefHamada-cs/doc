@@ -1,4 +1,5 @@
 import 'package:duc/core/helper/custom_show_snack_bar.dart';
+import 'package:duc/core/helper/validator.dart';
 import 'package:duc/core/routing/app_routes.dart';
 import 'package:duc/core/theming/app_colors.dart';
 import 'package:duc/core/theming/app_text_styles.dart';
@@ -32,25 +33,16 @@ class _LogInFormState extends State<LogInForm> {
           CustomTextFormField(
             onSaved: (value) => email = value!,
             keyboardType: TextInputType.emailAddress,
-
+            inputFormatters: [NoArabicInputFormatter()],
             hintText: 'Email',
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Please enter your email';
-              }
-              return null;
-            },
+            validator: Validator.email,
           ),
           CustomTextFormField(
             hintText: 'Password',
             onSaved: (value) => password = value!,
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Please enter your password';
-              }
-              return null;
-            },
+            validator: Validator.password,
             obscureText: isObscureText,
+            inputFormatters: [NoArabicInputFormatter()],
             suffixIcon: GestureDetector(
               onTap: () {
                 setState(() {
@@ -64,7 +56,6 @@ class _LogInFormState extends State<LogInForm> {
             ),
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Checkbox(
                 activeColor: AppColors.mainBlue,

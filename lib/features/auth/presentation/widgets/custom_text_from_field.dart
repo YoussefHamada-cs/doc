@@ -34,6 +34,7 @@ class CustomTextFormField extends StatelessWidget {
         onSaved: onSaved,
         keyboardType: keyboardType,
         obscureText: obscureText,
+        cursorColor: AppColors.mainBlue,
 
         decoration: InputDecoration(
           hintText: hintText,
