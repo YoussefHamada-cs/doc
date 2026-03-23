@@ -52,7 +52,7 @@ class CustomTextFormField extends StatelessWidget {
           focusedErrorBorder: errorBoder(),
           suffixIcon: suffixIcon,
         ),
-        autovalidateMode: AutovalidateMode.onUserInteraction,
+
         validator: validator,
         inputFormatters: inputFormatters,
       ),

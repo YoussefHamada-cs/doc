@@ -22,12 +22,14 @@ class LogInForm extends StatefulWidget {
 class _LogInFormState extends State<LogInForm> {
   late String email, password;
   final key = GlobalKey<FormState>();
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   bool isObscureText = true;
   bool isChecked = false;
   @override
   Widget build(BuildContext context) {
     return Form(
       key: key,
+      autovalidateMode: autovalidateMode,
       child: Column(
         children: [
           CustomTextFormField(
@@ -107,6 +109,10 @@ class _LogInFormState extends State<LogInForm> {
                             email: email,
                             password: password,
                           );
+                        } else {
+                          setState(() {
+                            autovalidateMode = AutovalidateMode.always;
+                          });
                         }
                       },
                     );
