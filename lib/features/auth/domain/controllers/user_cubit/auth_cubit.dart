@@ -1,41 +1,34 @@
 import 'package:duc/features/auth/data/models/log_in_model/log_in_model.dart';
 import 'package:duc/features/auth/domain/controllers/user_cubit/auth_state.dart';
-import 'package:duc/features/auth/domain/aurh_repo.dart';
+import 'package:duc/features/auth/domain/repo/aurh_repo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import 'package:image_picker/image_picker.dart';
 
 class AuthCubit extends Cubit<AuthState> {
   final AuthRepo userRepo;
   AuthCubit({required this.userRepo}) : super(AuthInitial());
 
-  //Profile Pic
-  XFile? profilePic;
-
   LogInModel? signInModel;
-  // updateProfilePic(XFile image) {
-  //   profilePic = image;
-  //   emit(ProfilePicUpdated());
-  // }
-  // Future signUp() async {
-  //   emit(LoadingSignUp());
 
-  //     final response = await userRepo.signUp(
-  //       email: signUpEmail.text,
-  //       password: signUpPassword.text,
-  //       confirmPassword: confirmPassword.text,
-  //       name: signUpName.text,
-  //       phone: signUpPhoneNumber.text,
+  Future register({
+    required String email,
+    required String password,
+    required String userName,
+    required String phoneNumber,
+  }) async {
+    emit(LoadingRegister());
 
-  //       profilePic: profilePic!,
-  //     );
-  //     response.fold(
-  //       (errorMessage) => emit(FailureSignUp(errorMessage: errorMessage)),
-  //       (signUpModel) =>
-  //         emit(SuccessSignUp(successMessage: signUpModel.message)),
-  //     );
-
-  // }
+    final response = await userRepo.register(
+      email: email,
+      password: password,
+      confirmPassword: password,
+      name: userName,
+      phone: phoneNumber,
+    );
+    response.fold(
+      (errorMessage) => emit(FailureRegister(errorMessage: errorMessage)),
+      (signUpModel) => emit(SuccessRegister()),
+    );
+  }
 
   Future signIn({required String email, required String password}) async {
     emit(LoadingLogIn());
