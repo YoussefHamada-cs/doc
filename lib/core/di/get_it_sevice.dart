@@ -3,7 +3,7 @@ import 'package:duc/core/api/api_consumer.dart';
 import 'package:duc/core/api/dio_consumer.dart';
 import 'package:duc/features/auth/data/repo/auth_repo_impl.dart';
 import 'package:duc/features/auth/domain/controllers/user_cubit/auth_cubit.dart';
-import 'package:duc/features/auth/domain/aurh_repo.dart';
+import 'package:duc/features/auth/domain/repo/aurh_repo.dart';
 import 'package:get_it/get_it.dart';
 
 final getIt = GetIt.instance;
