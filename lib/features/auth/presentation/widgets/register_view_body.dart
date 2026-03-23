@@ -1,13 +1,13 @@
 import 'package:duc/core/helper/spacing.dart';
 import 'package:duc/core/theming/app_text_styles.dart';
-import 'package:duc/features/auth/presentation/widgets/donot_have_an_account.dart';
-import 'package:duc/features/auth/presentation/widgets/log_in_form.dart';
+import 'package:duc/features/auth/presentation/widgets/already_have_an_account_yet.dart';
+import 'package:duc/features/auth/presentation/widgets/register_form.dart';
 import 'package:duc/features/auth/presentation/widgets/terms_and_conditions.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class LogInViewBody extends StatelessWidget {
-  const LogInViewBody({super.key});
+class RegisterViewBody extends StatelessWidget {
+  const RegisterViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,18 +18,18 @@ class LogInViewBody extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Welcome Back', style: AppTextStyles.fonts24mainBlue),
+              Text('Create Account', style: AppTextStyles.fonts24mainBlue),
               verticalSpace(8),
               Text(
-                'We\'re excited to have you back, can\'t wait to see what you\'ve been up to since you last\n logged in.',
+                'Sign up now and start exploring all that our app has to offer. We\'re excited to welcome you to our community!',
                 style: AppTextStyles.fonts13w400grey,
               ),
-              verticalSpace(30),
-              LogInForm(),
+              verticalSpace(20),
+              RegisterForm(),
               verticalSpace(40),
               TermsAndConditions(),
               verticalSpace(20),
-              DonotHaveAnAccount(),
+              AlreadyHaveAnAccountYet(),
             ],
           ),
         ),

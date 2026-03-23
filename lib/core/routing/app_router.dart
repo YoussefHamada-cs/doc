@@ -1,5 +1,6 @@
 import 'package:duc/core/routing/app_routes.dart';
 import 'package:duc/core/routing/app_transitions.dart';
+import 'package:duc/features/auth/presentation/views/register_view.dart';
 import 'package:duc/features/home/presentation/views/home_view.dart';
 import 'package:duc/features/auth/presentation/views/log_in_view.dart';
 import 'package:duc/features/onboarding/presentation/views/on_boarding_view.dart';
@@ -27,6 +28,15 @@ class AppRouter {
           context: context,
           state: state,
           child: LogInView(),
+        ),
+      ),
+      GoRoute(
+        path: AppRoutes.register,
+        name: AppRoutes.register,
+        pageBuilder: (context, state) => AppTransitions.size(
+          context: context,
+          state: state,
+          child:  RegisterView(),
         ),
       ),
       GoRoute(
