@@ -1,0 +1,14 @@
+platform :android do
+    desc "line for android firebase app distribution"
+    lane :firebase_distribution do
+      sh("flutter build apk --release --flavor production")
+      
+        release = firebase_app_distribution(
+            app: "1:1064348924112:android:6ccaf1ba9c917064b786d5",
+            firebase_cli_token: ENV["FIREBASE_CLI_TOKEN"],
+            testers: "youssef.hamada0101@gmail.com",
+            release_notes: "first firebase app distribution with fastlane ",
+            apk_path: "../build/app/outputs/flutter-apk/app-production-release.apk"
+        )
+    end
+end
