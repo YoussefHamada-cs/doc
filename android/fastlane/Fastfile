@@ -7,7 +7,7 @@ platform :android do
             app: "1:1064348924112:android:6ccaf1ba9c917064b786d5",
             firebase_cli_token: ENV["FIREBASE_CLI_TOKEN"],
             testers: "youssef.hamada0101@gmail.com",
-            release_notes: "first firebase app distribution with fastlane ",
+            release_notes: "Second firebase app distribution with fastlane and workflow  ",
             apk_path: "../build/app/outputs/flutter-apk/app-production-release.apk"
         )
     end
