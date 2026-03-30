@@ -14,8 +14,20 @@ class ApiKey {
   static String phone = 'phone';
   static String username = 'username';
   static String name = 'name';
-  static String gender = ' gender';
+  static String gender = 'gender';
   static String email = 'email';
   static String password = 'password';
   static String confirmPassword = 'password_confirmation';
+  static String photo = 'photo';
+  static String address = 'address';
+  static String description = 'description';
+  static String degree = 'degree';
+  static String appointPrice = 'appoint_price';
+  static String startTime = 'start_time';
+  static String endTime = 'end_time';
+  static String specialization = 'specialization';
+  static String city = 'city';
+  static String governrate = 'governrate';
+  static String doctors = 'doctors';
+  static String id = 'id';
 }
