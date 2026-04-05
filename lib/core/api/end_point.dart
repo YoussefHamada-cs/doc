@@ -2,6 +2,7 @@ class EndPoint {
   static String baseUrl = 'https://vcare.integration25.com/api/';
   static String signIn = 'auth/login';
   static String register = 'auth/register';
+  static String homeIndex = 'home/index';
 }
 
 class ApiKey {
