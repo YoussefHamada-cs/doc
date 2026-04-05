@@ -1,3 +1,5 @@
+import 'package:duc/core/api/end_point.dart';
+import 'package:duc/core/helper/flutter_secure_storage_service.dart';
 import 'package:duc/core/routing/app_routes.dart';
 import 'package:duc/core/routing/app_transitions.dart';
 import 'package:duc/features/auth/presentation/views/register_view.dart';
@@ -8,10 +10,12 @@ import 'package:go_router/go_router.dart';
 
 class AppRouter {
   static final GoRouter router = GoRouter(
-    initialLocation: AppRoutes.onboarding,
+    initialLocation:
+        FlutterSecureStorageService().getSecureData(key: ApiKey.token) == ""
+        ? AppRoutes.onboarding
+        : AppRoutes.home,
     routes: [
       // ----------------------- Public routes (no bottom nav) -----------------------
-  
       GoRoute(
         path: AppRoutes.onboarding,
         name: AppRoutes.onboarding,
@@ -24,7 +28,7 @@ class AppRouter {
       GoRoute(
         path: AppRoutes.logIn,
         name: AppRoutes.logIn,
-        pageBuilder: (context, state) => AppTransitions.size(
+        pageBuilder: (context, state) => AppTransitions.slideFromLeft(
           context: context,
           state: state,
           child: LogInView(),
@@ -33,10 +37,10 @@ class AppRouter {
       GoRoute(
         path: AppRoutes.register,
         name: AppRoutes.register,
-        pageBuilder: (context, state) => AppTransitions.size(
+        pageBuilder: (context, state) => AppTransitions.slideFromRight(
           context: context,
           state: state,
-          child:  RegisterView(),
+          child: RegisterView(),
         ),
       ),
       GoRoute(
