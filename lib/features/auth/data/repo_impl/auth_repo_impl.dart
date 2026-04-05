@@ -2,29 +2,16 @@ import 'package:dartz/dartz.dart';
 import 'package:duc/core/api/api_consumer.dart';
 import 'package:duc/core/api/end_point.dart';
 import 'package:duc/core/errors/exception.dart';
+import 'package:duc/core/helper/cache_helper.dart';
+import 'package:duc/core/helper/flutter_secure_storage_service.dart';
 import 'package:duc/features/auth/data/models/log_in_model/log_in_model.dart';
 import 'package:duc/features/auth/data/models/register_model/register_model.dart';
 import 'package:duc/features/auth/domain/repo/aurh_repo.dart';
-
-//import 'package:image_picker/image_picker.dart';
-//import 'package:jwt_decoder/jwt_decoder.dart';
 
 class UserRepoImpl implements AuthRepo {
   final ApiConsumer apiConsumer;
 
   UserRepoImpl({required this.apiConsumer});
-
-  // @override
-  // Future<Either<String, UserProfileGetModel>> getUserProfile()async {
-  //    try {
-  //     final response = await apiConsumer.get(EndPoint.getUserDataEndPoint(
-  //         CacheHelper().getData(key: ApiKey.id)));
-  //     final userProfileGetModel = UserProfileGetModel.fromJson(response);
-  //     return Right(userProfileGetModel);
-  //   } on ServerException catch (e) {
-  //     return Left(e.errorModel.errorMessage);
-  //   }
-  // }
 
   @override
   Future<Either<String, LogInModel>> signIn({
@@ -38,6 +25,13 @@ class UserRepoImpl implements AuthRepo {
         data: {ApiKey.email: email, ApiKey.password: password},
       );
       final logInModel = LogInModel.fromJson(response);
+
+      if (logInModel.data?.token != null) {
+        await FlutterSecureStorageService().saveSecureData(
+          key: ApiKey.token,
+          value: logInModel.data!.token ?? "",
+        );
+      }
 
       return Right(logInModel);
     } on ServerException catch (e) {
@@ -67,6 +61,13 @@ class UserRepoImpl implements AuthRepo {
         isFormData: true,
       );
       final registerModel = RegisterModel.fromJson(response);
+
+      if (registerModel.data?.token != null) {
+        await CacheHelper().saveData(
+          key: ApiKey.token,
+          value: registerModel.data!.token,
+        );
+      }
 
       return Right(registerModel);
     } on ServerException catch (e) {
